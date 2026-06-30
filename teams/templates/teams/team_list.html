@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teams</title>
+</head>
+<body>
+
+<h1>Teams</h1>
+
+{% for team in teams %}
+<h3>{{ team.name }}</h3>
+<p>{{ team.description }}</p>
+{% empty %}
+<p>No teams found.</p>
+{% endfor %}
+
+</body>
+</html>
