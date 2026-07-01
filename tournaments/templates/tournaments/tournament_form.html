@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h2>Create Tournament 🏆</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+            <label>Start Date</label>
+            {{ form.start_date }}
+        </div>
+
+        <div class="mb-3">
+            <label>Teams</label>
+            <div class="border p-3">
+                {{ form.teams }}
+            </div>
+        </div>
+
+        <button class="btn btn-success">
+            Create Tournament
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

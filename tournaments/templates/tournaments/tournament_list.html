@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>🏆 Tournaments</h2>
+
+    <a href="{% url 'tournament_create' %}" class="btn btn-success">
+        + Create Tournament
+    </a>
+</div>
+
+{% if tournaments %}
+
+<div class="row">
+
+    {% for tournament in tournaments %}
+
+    <div class="col-md-4">
+
+        <div class="card shadow mb-3">
+
+            <div class="card-body">
+
+                <h5>{{ tournament.name }}</h5>
+
+                <p>
+                    📅 {{ tournament.start_date }}
+                </p>
+
+                <p>
+                    👥 Teams:
+                    {{ tournament.teams.count }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="alert alert-info">
+    No tournaments found.
+</div>
+
+{% endif %}
+
+{% endblock %}
